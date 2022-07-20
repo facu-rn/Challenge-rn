@@ -1,20 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
+import { StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import AuthMap from "./src/stacks/AuthMap";
+import NoAuthMap from "./src/stacks/NoAuthMap";
 export default function App() {
+  const [isLoggin, setisLoggin] = useState(true);
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      {isLoggin ? <AuthMap /> : <NoAuthMap />}
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
