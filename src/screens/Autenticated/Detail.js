@@ -1,10 +1,8 @@
 import { Button, StyleSheet, Text, View } from 'react-native'
-import React, {FC} from 'react'
+import React from 'react'
 
-type Props = {
-  navigation: any
-}
-const Detail:FC<Props> = ({navigation}) => {
+
+const Detail = ({navigation}) => {
   return (
     <View>
       <Text>Detail</Text>
