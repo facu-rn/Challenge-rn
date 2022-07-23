@@ -1,7 +1,7 @@
 export const theme = {
   theme: "light",
   colors: {
-    main: "#FC6934",
+    main: "#7097cc",
     primary: "#FEC3B0",
     secondary: "#FEE3DB",
     actividad: "#D6FF59",
@@ -20,6 +20,11 @@ export const theme = {
     blacks: {
       main: "#1A1A1A",
     },
+    opacity: {
+      main: "rgba(0,0,0,0.3)",
+      primary: "rgba(117,117,117,0.67)",
+      secondary: "rgba(128,128,128,0.8)",
+    },
   },
 };
 export const darkTheme = {
@@ -28,7 +33,7 @@ export const darkTheme = {
   secondary: "#D8F6F6",
 };
 export const lightTheme = {
-  main: "#FC6934",
+  main: "#7097cc",
   primary: "#FEC3B0",
   secondary: "#FEE3DB",
 };

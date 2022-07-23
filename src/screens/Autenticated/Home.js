@@ -1,26 +1,33 @@
-import { Button, StyleSheet, Text, useWindowDimensions, View } from "react-native";
+import {
+  Button,
+  StatusBar,
+  StyleSheet,
+  Text,
+  useWindowDimensions,
+  View,
+} from "react-native";
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { types } from "../../redux/reducers/themeReducer";
+import CustomHeader from "../../components/headers/CustomHeader";
+import CustomModal from "../../components/modals/CustomModal";
+import { Avatar } from "react-native-elements";
+import Welcome from "../../components/Welcome";
+
 const Home = ({ navigation }) => {
-  const theme = useSelector((state) => state.theme.theme);
-  const colors = useSelector((state) => state.theme.colors);
+  const themeStatus = useSelector((state) => state.theme);
+  const { colors, theme } = themeStatus;
+  const [visible, setVisible] = useState(false);
   const dispatch = useDispatch();
-const width = useWindowDimensions().width;
-console.log(width)
-  const handlePress = () => {
-    if (theme === "dark") {
-      return dispatch({ type: "change_theme", payload: "light" });
-    } else {
-      dispatch({ type: "change_theme", payload: "dark" });
-    }
+  const width = useWindowDimensions().width;
+
+  const device = () => {
+    width > 600 ? "tablet" : "phone";
   };
   return (
     <View>
-      <Text style={{ color: colors.main }}>{theme}</Text>
-
-      <Button title="Go Detail" onPress={() => navigation.navigate("Detail")} />
-      <Button title="change theme" onPress={handlePress} />
+      <CustomHeader rightPress={() => navigation.openDrawer()} showSwitch theme={true}/>
+      <StatusBar barStyle={"light-content"} />
+      <Welcome userName={'Facundo Valencia'} />
     </View>
   );
 };
