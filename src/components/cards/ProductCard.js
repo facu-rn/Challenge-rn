@@ -1,13 +1,17 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import { Rating } from "react-native-ratings";
+import { useSelector } from "react-redux";
+import ButtonRounded from "../buttons/ButtonRounded";
 const ProductCard = ({ url }) => {
   const URI = url
     ? url
-    : "https://w7.pngwing.com/pngs/931/848/png-transparent-nike-free-shoe-sneakers-running-women-shoes-blue-grey-outdoor-shoe.png";
+    : "https://patuelligroup.vteximg.com.br/arquivos/ids/263861-1000-1000/img_2D_0001_large.jpg";
+  const colors = useSelector((state) => state.theme.colors);
   return (
     <View style={styles.container}>
       <View>
@@ -20,12 +24,18 @@ const ProductCard = ({ url }) => {
       </View>
       <View style={styles.textContainer}>
         <Text style={styles.title}>Titulo: zapatillas</Text>
-        <Text style={styles.brand}>Marca del producto</Text>
-        <Text style={styles.price}>Precio $213</Text>
-
-        <Text>Aqui va el rating</Text>
-        <Text>Stock</Text>
-        <Text>Category</Text>
+        <Text style={styles.cardText}>Marca del producto</Text>
+        <Text style={[styles.price, { color: colors.main }]}>Precio $213</Text>
+        <Rating
+          type="star"
+          ratingCount={5}
+          imageSize={15}
+          startingValue={5}
+          style={{ alignSelf: "flex-start", paddingVertical: 3 }}
+        />
+        <Text style={styles.cardText}>Disponibles: 12</Text>
+        <Text style={styles.cardText}>Category</Text>
+       <ButtonRounded title={'Ver detalles'} onPress={()=>{}} />
       </View>
     </View>
   );
@@ -35,12 +45,19 @@ export default ProductCard;
 
 const styles = StyleSheet.create({
   container: {
-    borderWidth: 1,
-    alignSelf: "center",
+    backgroundColor: "#fff",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 1.41,
+ elevation: 2,
   },
   image: {
-    height: hp("20%"),
-    width: wp("80%"),
+    height: hp("22%"),
+    width: wp("90%"),
     resizeMode: "cover",
   },
   textContainer: {
@@ -48,14 +65,18 @@ const styles = StyleSheet.create({
   },
   title: {
     marginTop: 10,
-    fontSize: 22,
-  },
-  brand: {
     fontSize: 18,
+    paddingVertical: 5,
   },
+
   price: {
     color: "gray",
     fontSize: 18,
     fontWeight: "bold",
+    paddingVertical: 2,
+  },
+  cardText: {
+    paddingVertical: 5,
+    fontSize: 16,
   },
 });

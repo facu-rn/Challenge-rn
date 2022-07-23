@@ -27,15 +27,14 @@ const Home = ({ navigation }) => {
     width > 600 ? "tablet" : "phone";
   };
   return (
-    <View>
+    <View style={{ backgroundColor: "rgba(255,255,255,0.7)" }}>
       <CustomHeader rightPress={() => navigation.openDrawer()} />
       <StatusBar barStyle={"light-content"} />
       <ScrollView>
-        
         <Welcome userName={"Facundo Valencia"} />
-        <ProductCard />
-        
-        
+        <View style={{ alignSelf: "center" }}>
+          <ProductCard />
+        </View>
       </ScrollView>
     </View>
   );
