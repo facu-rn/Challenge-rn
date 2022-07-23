@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { Avatar, Badge, Icon } from "react-native-elements";
+import { Avatar } from "react-native-elements";
 import { useSelector } from "react-redux";
 import BadgeIcon from "./icons/BadgeIcon";
 //https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Dog-512.png
@@ -13,7 +13,7 @@ const Welcome = ({ userName, userImg }) => {
   return (
     <View style={styles.container}>
       <View style={styles.cardContainer}>
-        <Avatar source={{ uri: URI }} size={60} rounded />
+        <Avatar source={{ uri: URI }} size={50} rounded />
 
         <View style={styles.textPosition}>
           <Text style={[styles.text1, { color: colors.main }]}>Hola!,</Text>

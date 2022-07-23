@@ -1,23 +1,26 @@
 import {
-  Button,
+  ScrollView,
   StatusBar,
   StyleSheet,
-  Text,
   useWindowDimensions,
   View,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CustomHeader from "../../components/headers/CustomHeader";
-import CustomModal from "../../components/modals/CustomModal";
-import { Avatar } from "react-native-elements";
+import { Image } from "react-native";
 import Welcome from "../../components/Welcome";
-
+import ProductCard from "../../components/cards/ProductCard";
+import axios from "axios";
 const Home = ({ navigation }) => {
-  const themeStatus = useSelector((state) => state.theme);
-  const { colors, theme } = themeStatus;
-  const [visible, setVisible] = useState(false);
-  const dispatch = useDispatch();
+  const [products, setProducts] = useState();
+
+  const getProducts = async () => {
+    const data = await axios.get("https://dummyjson.com/products");
+    setProducts(data);
+  };
+  //getProducts();
+  //console.log(products);
   const width = useWindowDimensions().width;
 
   const device = () => {
@@ -25,9 +28,15 @@ const Home = ({ navigation }) => {
   };
   return (
     <View>
-      <CustomHeader rightPress={() => navigation.openDrawer()} showSwitch theme={true}/>
+      <CustomHeader rightPress={() => navigation.openDrawer()} />
       <StatusBar barStyle={"light-content"} />
-      <Welcome userName={'Facundo Valencia'} />
+      <ScrollView>
+        
+        <Welcome userName={"Facundo Valencia"} />
+        <ProductCard />
+        
+        
+      </ScrollView>
     </View>
   );
 };

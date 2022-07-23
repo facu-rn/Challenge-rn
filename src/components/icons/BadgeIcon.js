@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { Icon } from "react-native-elements";
 import { Badge } from "react-native-elements";
 
-const BadgeIcon = ({ value, name, badgeType }) => {
+const BadgeIcon = ({ value, name, badgeType,onPress }) => {
   return (
-    <View>
+    <TouchableOpacity onPress={onPress}>
       <Icon
         type="material-community"
         name={name}
@@ -19,7 +19,7 @@ const BadgeIcon = ({ value, name, badgeType }) => {
         //success, error, primary, warning
         containerStyle={{ position: "absolute", top: -4, right: -4 }}
       />
-    </View>
+    </TouchableOpacity>
   );
 };
 
