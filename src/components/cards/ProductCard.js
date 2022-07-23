@@ -7,7 +7,16 @@ import {
 import { Rating } from "react-native-ratings";
 import { useSelector } from "react-redux";
 import ButtonRounded from "../buttons/ButtonRounded";
-const ProductCard = ({ url }) => {
+const ProductCard = ({
+  url,
+  title,
+  brand,
+  price,
+  raiting,
+  stock,
+  category,
+  onPress,
+}) => {
   const URI = url
     ? url
     : "https://patuelligroup.vteximg.com.br/arquivos/ids/263861-1000-1000/img_2D_0001_large.jpg";
@@ -35,7 +44,7 @@ const ProductCard = ({ url }) => {
         />
         <Text style={styles.cardText}>Disponibles: 12</Text>
         <Text style={styles.cardText}>Category</Text>
-       <ButtonRounded title={'Ver detalles'} onPress={()=>{}} />
+        <ButtonRounded title={"Ver detalles"} onPress={() => {}} />
       </View>
     </View>
   );
@@ -53,11 +62,12 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.2,
     shadowRadius: 1.41,
- elevation: 2,
+    elevation: 2,
+    width: wp("90%"),
   },
   image: {
     height: hp("22%"),
-    width: wp("90%"),
+
     resizeMode: "cover",
   },
   textContainer: {
