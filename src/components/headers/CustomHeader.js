@@ -32,17 +32,6 @@ const CustomHeader = ({
     theme === "dark" ? changeLight : changeDark;
   };
 
-const themeComponent = (
-  <>
-  <Icon
-  type="material-community"
-  name="checkbox-blank-circle"
-  />
-  </>
-)
-
-
-
   const leftComponent = (
     <Icon
       type="material-community"
@@ -92,7 +81,7 @@ export default CustomHeader;
 
 const styles = StyleSheet.create({
   container: {
-    height: hp("7%") + Constants.statusBarHeight,
+    height: hp("9%") + Constants.statusBarHeight,
   },
   titulo: {
     fontSize: RFValue(18, 667),

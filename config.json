@@ -1,0 +1,10 @@
+{
+	"show-drawer": true,
+	"primary-color": "#829ee0",
+	"status-bar": "dark-content",
+	"user": {
+		"name": "Mobbex",
+		"avatar": "https://res.mobbex.com/static/mobbex/images/default-image.png"
+	},
+	"app-name": "React Native Challenge"
+}

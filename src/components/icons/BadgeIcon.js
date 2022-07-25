@@ -2,6 +2,10 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { Icon } from "react-native-elements";
 import { Badge } from "react-native-elements";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 
 const BadgeIcon = ({ value, name, badgeType,onPress }) => {
   return (
@@ -10,7 +14,7 @@ const BadgeIcon = ({ value, name, badgeType,onPress }) => {
         type="material-community"
         name={name}
         color={"gray"}
-        size={30}
+        size={hp('4%')}
         style={{ padding: 5 }}
       />
       <Badge

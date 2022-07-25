@@ -16,7 +16,7 @@ export default ButtonRounded
 
 const styles = StyleSheet.create({
     container:{
-        borderRadius:10,
+        borderRadius:20,
         alignItems:'center',
         padding:3,
         paddingHorizontal:10,

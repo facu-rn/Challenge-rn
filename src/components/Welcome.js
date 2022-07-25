@@ -3,8 +3,12 @@ import React from "react";
 import { Avatar } from "react-native-elements";
 import { useSelector } from "react-redux";
 import BadgeIcon from "./icons/BadgeIcon";
-//https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Dog-512.png
-const Welcome = ({ userName, userImg }) => {
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
+const Welcome = ({ userName, userImg, greetingColor }) => {
   const themeStatus = useSelector((state) => state.theme);
   const { colors } = themeStatus;
   const URI = userImg
@@ -13,10 +17,17 @@ const Welcome = ({ userName, userImg }) => {
   return (
     <View style={styles.container}>
       <View style={styles.cardContainer}>
-        <Avatar source={{ uri: URI }} size={50} rounded />
+        <Avatar source={{ uri: URI }} size={hp('8%')} rounded />
 
         <View style={styles.textPosition}>
-          <Text style={[styles.text1, { color: colors.main }]}>Hola!,</Text>
+          <Text
+            style={[
+              styles.text1,
+              { color: greetingColor ? greetingColor : colors.main },
+            ]}
+          >
+            Hola!,
+          </Text>
           <Text style={styles.text2}>{userName}</Text>
         </View>
       </View>
@@ -47,12 +58,11 @@ const styles = StyleSheet.create({
     marginLeft: 15,
   },
   text1: {
-    fontSize: 18,
+    fontSize: RFValue(18, 667),
     fontWeight: "bold",
-
   },
   text2: {
-    fontSize: 16,
+    fontSize: RFValue(18, 667),
     fontWeight: "bold",
     color: "gray",
   },

@@ -8,8 +8,10 @@ const AuthMap = () => {
     <>
       <DrawerStack.Navigator 
        screenOptions={{
-         headerShown:false
-         }}>
+         headerShown:false,
+         }}
+         
+         >
         <DrawerStack.Screen name={AuthRoute.homeScreen} component={Home} />
         <DrawerStack.Screen name={AuthRoute.detailScreen} component={Detail}/>
       </DrawerStack.Navigator>
