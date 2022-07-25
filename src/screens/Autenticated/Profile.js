@@ -5,7 +5,7 @@ import CustomHeader from '../../components/headers/CustomHeader'
 const Profile = ({navigation}) => {
   return (
     <View>
-      <CustomHeader navigation={navigation} goBack/>
+      <CustomHeader navigation={navigation} goBack rightPress={() => navigation.openDrawer()}/>
     </View>
   )
 }

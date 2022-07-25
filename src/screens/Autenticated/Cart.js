@@ -4,7 +4,8 @@ import CustomHeader from '../../components/headers/CustomHeader'
 const Cart = ({navigation}) => {
   return (
     <View>
-      <CustomHeader navigation={navigation} goBack/>
+      <CustomHeader navigation={navigation} goBack
+      rightPress={() => navigation.openDrawer()}/>
     </View>
   )
 }
