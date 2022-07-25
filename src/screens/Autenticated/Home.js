@@ -17,7 +17,7 @@ const Home = ({ navigation }) => {
   const [productos, setProducts] = useState();
   const [loading, setLoading] = useState(true);
   const colors = useSelector((state) => state.theme.colors);
-
+  
   useEffect(() => {
     const getProducts = async () => {
       const data = await axios.get("https://dummyjson.com/products");
@@ -29,7 +29,7 @@ const Home = ({ navigation }) => {
   const width = Dimensions.get("screen").width;
   const device = width > 600 ? "tablet" : "phone";
   return (
-    <View style={{ backgroundColor: "rgba(255,255,255,0.7)" }}>
+    <View style={{ backgroundColor: colors.bgMain }}>
       <CustomHeader
         title={configData["app-name"]}
         rightPress={() => navigation.openDrawer()}
@@ -58,6 +58,7 @@ const Home = ({ navigation }) => {
             columnWrapperStyle={
               device === "tablet" && { justifyContent: "space-evenly" }
             }
+            style={{borderRadius:20}}
           />
         )}
       </View>

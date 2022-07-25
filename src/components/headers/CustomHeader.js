@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Text, StyleSheet } from "react-native";
-import { heightPercentageToDP as hp } from "react-native-responsive-screen";
+import { heightPercentageToDP as hp, widthPercentageToDP as wp} from "react-native-responsive-screen";
 import Constants from "expo-constants";
 import { RFValue } from "react-native-responsive-fontsize";
 import { Header, Icon } from "react-native-elements";
@@ -27,17 +27,13 @@ const CustomHeader = ({
     dispatch({ type: "change_theme", payload: "light" });
     setDarkTheme(false);
   };
-  const handleTheme = () => {
-    console.log("presinado");
-    theme === "dark" ? changeLight : changeDark;
-  };
 
   const leftComponent = (
     <Icon
       type="material-community"
       name="arrow-left"
       size={hp("3.1%")}
-      color={colors.text.secondary}
+      color={colors.textSecondary}
       onPress={() => navigation.goBack()}
     />
   );
@@ -45,7 +41,7 @@ const CustomHeader = ({
 
   const centerComponent = (
     <Text
-      style={[styles.titulo, { color: colors.text.secondary }]}
+      style={[styles.titulo, { color: colors.textPrimary }]}
       allowFontScaling={false}
     >
       {title ? title : route.name}
@@ -56,7 +52,7 @@ const CustomHeader = ({
     <Icon
       name={rightName ? rightName : "menu"}
       type={rightType ? rightType : "material-community"}
-      color={colors.text.secondary}
+      color={colors.textSecondary}
       size={hp("3.1%")}
       onPress={rightPress}
     />
@@ -69,7 +65,7 @@ const CustomHeader = ({
       }}
       placement={align ? align : "center"}
       containerStyle={styles.container}
-      backgroundColor={colors.main}
+      backgroundColor={colors.bgMain}
       leftComponent={goBack ? leftComponent : null}
       centerComponent={centerComponent}
       rightComponent={rightPress ? rightComponent : null}
@@ -81,7 +77,8 @@ export default CustomHeader;
 
 const styles = StyleSheet.create({
   container: {
-    height: hp("9%") + Constants.statusBarHeight,
+    height: hp("10%") + Constants.statusBarHeight,
+    paddingHorizontal:wp('4%')
   },
   titulo: {
     fontSize: RFValue(18, 667),

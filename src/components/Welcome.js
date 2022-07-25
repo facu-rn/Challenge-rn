@@ -15,7 +15,7 @@ const Welcome = ({ userName, userImg, greetingColor }) => {
     ? userImg
     : "https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Penguin-512.png";
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {backgroundColor:colors.bgPrimary}]}>
       <View style={styles.cardContainer}>
         <Avatar source={{ uri: URI }} size={hp('8%')} rounded />
 
@@ -28,11 +28,11 @@ const Welcome = ({ userName, userImg, greetingColor }) => {
           >
             Hola!,
           </Text>
-          <Text style={styles.text2}>{userName}</Text>
+          <Text style={[styles.text2, {color:colors.textPrimary}]}>{userName}</Text>
         </View>
       </View>
       <View style={{ flexDirection: "row" }}>
-        <BadgeIcon name={"cart-outline"} />
+        <BadgeIcon name={"cart-outline"} badgeType={"error"} value={1} />
         <BadgeIcon name={"bell-outline"} badgeType={"error"} value={1} />
       </View>
     </View>
@@ -46,7 +46,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingHorizontal: 15,
+    paddingHorizontal: wp('4%'),
+    marginBottom:10
   },
   cardContainer: {
     display: "flex",

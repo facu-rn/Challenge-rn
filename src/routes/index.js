@@ -4,7 +4,11 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 export const AuthRoute ={
     homeScreen : 'Home',
     detailScreen: 'Detail',
-
+    cartScreen:'Cart',
+    messageScreen:'Messages',
+    profileScreen:'Profile',
+    settingsScreen:'Settings',
+    drawerMap: 'DrawerMap'
 }
 export const NoAuthRoute = {
     register : 'Register'

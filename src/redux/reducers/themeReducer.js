@@ -11,15 +11,21 @@ export default (state = initialState, action) => {
         action.payload === "dark"
           ? {
               ...state.colors,
-              main: lightTheme.main,
-              primary: lightTheme.primary,
-              secondary: lightTheme.secondary,
+              bgMain: lightTheme.bgMain,
+              bgPrimary: lightTheme.bgPrimary,
+              bgSecondary: lightTheme.bgSecondary,
+              textMain: lightTheme.textMain,
+              textPrimary: lightTheme.textPrimary,
+              textSecondary: lightTheme.textSecondary,
             }
           : {
               ...state.colors,
-              main: darkTheme.main,
-              primary: darkTheme.primary,
-              secondary: darkTheme.secondary,
+              bgMain: darkTheme.bgMain,
+              bgPrimary: darkTheme.bgPrimary,
+              bgSecondary: darkTheme.bgSecondary,
+              textMain: darkTheme.textMain,
+              textPrimary: darkTheme.textPrimary,
+              textSecondary: darkTheme.textSecondary,
             };
       return {
         ...state,

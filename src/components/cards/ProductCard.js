@@ -1,4 +1,11 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View,Dimensions } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  Dimensions,
+} from "react-native";
 import React from "react";
 import {
   widthPercentageToDP as wp,
@@ -9,11 +16,9 @@ import { useSelector } from "react-redux";
 import ButtonRounded from "../buttons/ButtonRounded";
 import * as rootNavigation from "../../../rootNavigation";
 
-
 const width = Dimensions.get("screen").width;
- const device = width>600?'tablet':'phone'
- const widthDevice= device==='phone'? wp('90%') : wp('45%')
-console.log('que dispositivo sos:', device)
+const device = width > 600 ? "tablet" : "phone";
+const widthDevice = device === "phone" ? wp("90%") : wp("45%");
 const ProductCard = ({ items }) => {
   const URI = items.images[0]
     ? items.images[0]
@@ -21,25 +26,33 @@ const ProductCard = ({ items }) => {
   const colors = useSelector((state) => state.theme.colors);
 
   return (
-    <View style={[styles.container, {width:widthDevice} ]}>
+    <View
+      style={[
+        styles.container,
+        { width: widthDevice, backgroundColor: colors.bgPrimary },
+      ]}
+    >
       <Image source={{ uri: URI }} style={styles.image} />
 
       <View style={styles.textContainer}>
-        <Text style={styles.title}>{items.title}</Text>
-        <Text style={styles.cardText}>{items.brand}</Text>
+        <Text style={[styles.title,{color:colors.textMain}]}>{items.title}</Text>
+        <Text style={[styles.cardText,{color:colors.textPrimary}]}>{items.brand}</Text>
         <Text style={[styles.price, { color: colors.main }]}>
           ${items.price}
         </Text>
         <Rating
-          type="star"
+          type="custom"
           ratingCount={5}
-          imageSize={15}
+          imageSize={20}
           startingValue={items.rating}
           style={{ alignSelf: "flex-start", paddingVertical: 3 }}
+          tintColor={colors.bgPrimary}
+          ratingBackgroundColor={colors.gray}
+          ratingColor={colors.main}
           fractions={2}
         />
-        <Text style={styles.cardText}>Disponibles: {items.stock}</Text>
-        <Text style={styles.cardText}>{items.category}</Text>
+        <Text style={[styles.cardText,{color:colors.textPrimary}]}>Disponibles: {items.stock}</Text>
+        <Text style={[styles.cardText,{color:colors.textPrimary}]}>{items.category}</Text>
         <ButtonRounded
           title={"Ver detalles"}
           onPress={() => {
@@ -55,7 +68,6 @@ export default ProductCard;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#fff",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -64,12 +76,15 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 1.41,
     elevation: 2,
-    marginBottom:30
+    marginBottom: 30,
+    paddingBottom: 15,
+    borderRadius:5
   },
   image: {
     height: hp("22%"),
-
-    resizeMode: "contain",
+ resizeMode: "cover",
+ borderTopLeftRadius:5,
+ borderTopRightRadius:5
   },
   textContainer: {
     paddingHorizontal: 15,

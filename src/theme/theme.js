@@ -1,25 +1,17 @@
 export const theme = {
   theme: "light",
   colors: {
-    main: "#7097cc",
-    primary: "#FEC3B0",
-    secondary: "#FEE3DB",
-    actividad: "#D6FF59",
-    white: "#FFFFFF",
-    text: {
-      main: "#000000",
-      primary: "#707070",
-      secondary: "#DCDCDC",
-    },
-    gray: {
-      main: "#DDDDDD",
-      primary: "#EDEDED",
+    bgMain: "#f9f9f9",
+    bgPrimary: "#e9e9ea",
+    bgSecondary: "#f2f2f3",
 
-      secondary: "#2D2C2C8F",
-    },
-    blacks: {
-      main: "#1A1A1A",
-    },
+    main: "#e15e2c",
+    
+    textMain: "#202121",
+    textPrimary: "#313232",
+    textSecondary: "#424244",
+    white: "#fff",
+    gray:'#bfbfbf',
     opacity: {
       main: "rgba(0,0,0,0.3)",
       primary: "rgba(117,117,117,0.67)",
@@ -28,12 +20,18 @@ export const theme = {
   },
 };
 export const darkTheme = {
-  main: "#5AC5C6",
-  primary: "#9CF7F8",
-  secondary: "#D8F6F6",
+  bgMain: "#202121",
+  bgPrimary: "#313232",
+  bgSecondary: "#424244",
+  textMain: "#fff",
+  textPrimary: "#bfbfbf",
+  textSecondary: "#6f6f73",
 };
 export const lightTheme = {
-  main: "#7097cc",
-  primary: "#FEC3B0",
-  secondary: "#FEE3DB",
+  bgMain: "#f9f9f9",
+  bgPrimary: "#e9e9ea",
+  bgSecondary: "#f2f2f3",
+  textMain: "#202121",
+  textPrimary: "#313232",
+  textSecondary: "#424244",
 };
